@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "chroma_key": {
+    "hex": "#FF00FF",
+    "rgb": [
+      255,
+      0,
+      255
+    ],
+    "threshold": 96.0
+  },
+  "rows": [
+    {
+      "state": "running-right",
+      "frames": [
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/00.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/01.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/02.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/03.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/04.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/05.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/06.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-right/07.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "running-left",
+      "frames": [
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/00.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/01.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/02.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/03.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/04.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/05.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/06.png",
+        "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/running-left/07.png"
+      ],
+      "method": "components"
+    }
+  ]
+}

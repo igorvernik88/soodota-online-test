@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "frames_root": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames",
+  "states": [
+    "jumping"
+  ],
+  "errors": [],
+  "warnings": [],
+  "rows": [
+    {
+      "state": "jumping",
+      "expected_frames": 5,
+      "actual_frames": 5,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/jumping/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22400,
+          "bbox": [
+            15,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/jumping/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17051,
+          "bbox": [
+            29,
+            5,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/jumping/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17930,
+          "bbox": [
+            26,
+            5,
+            165,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/jumping/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17355,
+          "bbox": [
+            27,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/Users/dummy/Documents/ChatGPT/\u0441\u0443\u0434\u043e\u0442\u0430/assets/pets/sudota-artist-redo/frames/jumping/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20100,
+          "bbox": [
+            23,
+            5,
+            169,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    }
+  ]
+}

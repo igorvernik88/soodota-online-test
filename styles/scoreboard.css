@@ -1,0 +1,228 @@
+.topbar {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 64px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+}
+.topbar > * {
+  pointer-events: auto;
+}
+.brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #f7f1de;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px #21372d;
+}
+.brand-mark {
+  font-size: 30px;
+  color: #d1e0b9;
+  line-height: 1;
+}
+.brand small {
+  display: block;
+  font-size: 6px;
+  font-weight: 550;
+  letter-spacing: 1.5px;
+  margin: 2px 0 0 2px;
+}
+.match-score {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(840px, calc(100% - 196px));
+  display: flex;
+  align-items: flex-start;
+  color: #f8f2df;
+  background: linear-gradient(#2e443be8, #1d302be8);
+  border: 1px solid #607064;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 3px 10px #17291f55;
+}
+.match-roster {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+  padding: 3px 4px 4px;
+}
+.match-hero {
+  position: relative;
+  height: 56px;
+  background: linear-gradient(145deg, var(--portrait-color), #243a30);
+  border: 1px solid #526457;
+  border-top: 2px solid #98bd83;
+}
+.match-roster.blots .match-hero {
+  border-top-color: #d48679;
+}
+.match-hero.you {
+  outline: 1px solid #f2e4b4;
+  outline-offset: 0;
+}
+.match-portrait {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.match-portrait img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600%;
+  max-width: none;
+  transform: translateY(calc(var(--portrait-top) * 100%));
+  image-rendering: pixelated;
+}
+.match-hero[data-match-role="sudaks"] .match-portrait img {
+  left: 0;
+  width: 600%;
+}
+.match-health {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #182c25;
+}
+.match-health i {
+  display: block;
+  height: 100%;
+  background: #a5cb81;
+  transition: width 0.15s;
+}
+.match-roster.blots .match-health i {
+  background: #db9684;
+}
+.match-hero.health-hidden .match-health i {
+  background: #7f9182;
+}
+.match-hero.dead {
+  background: #28332f;
+  border-color: #5d655e;
+}
+.match-hero.dead img {
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+.match-respawn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  text-shadow: 0 2px 4px #000;
+}
+.match-center {
+  flex: none;
+  width: 188px;
+  height: 63px;
+  display: grid;
+  grid-template-columns: 56px 76px 56px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.match-kills,
+.match-time {
+  padding-top: 9px;
+}
+.match-kills small,
+.match-time small {
+  display: block;
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  color: #bdd5a7;
+}
+.match-kills.blots small {
+  color: #e1a093;
+}
+.match-kills b {
+  display: block;
+  font-size: 29px;
+  line-height: 36px;
+}
+.match-time {
+  background: #182c25aa;
+  border-inline: 1px solid #63736966;
+  border-radius: 0 0 4px 4px;
+}
+.match-time small {
+  color: #a6b3a4;
+}
+#clock {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.green {
+  color: var(--green);
+}
+.red {
+  color: var(--red);
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.icon-btn {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+.header-actions .icon-btn:last-child {
+  border-radius: 3px;
+  font: 600 15px Arial;
+}
+.header-actions .icon-btn {
+  color: #f8f2df;
+  background: #243b32dc;
+  border-color: #72826d;
+}
+.header-actions .icon-btn:hover {
+  background: #3e5746;
+}
+
+.match-praise {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 23px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 21px;
+  z-index: 3;
+}
+.match-praise:hover:not(:disabled) {
+  transform: translateX(-50%);
+}
+.match-praise .praise-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+body.alt-held .match-praise {
+  display: block;
+}

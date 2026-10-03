@@ -1,0 +1,154 @@
+@media (max-width: 1100px) {
+  .bottom-hud {
+    gap: 14px;
+    padding: 10px 15px;
+  }
+  .hero-card {
+    min-width: 170px;
+  }
+  .ability {
+    min-width: 160px;
+  }
+  .role-avatar {
+    width: 48px;
+    height: 65px;
+  }
+  .inventory-cards {
+    gap: 3px;
+  }
+  .inv-card {
+    font-size: 19px;
+    min-width: 24px;
+  }
+  .delivery-status {
+    max-width: 200px;
+    font-size: 8px;
+  }
+  .objective-strip {
+    left: 42%;
+    font-size: 9px;
+  }
+  .hero-option {
+    padding: 14px 10px;
+  }
+  .hero-option h3 {
+    font-size: 18px;
+  }
+  .hero-option p {
+    font-size: 10px;
+  }
+  .action-bar {
+    padding: 5px 15px;
+  }
+  .paper-panel.shop-panel {
+    width: 355px;
+  }
+}
+@media (max-width: 760px) {
+  #app {
+    min-height: 750px;
+  }
+  .bottom-hud {
+    height: 174px;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .hero-card {
+    min-width: 0;
+    width: 46%;
+  }
+  .ability {
+    min-width: 0;
+    width: 46%;
+  }
+  .inventory {
+    width: 100%;
+    flex: auto;
+  }
+  .inventory-cards {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .inv-card {
+    height: 33px;
+    font-size: 18px;
+  }
+  .action-bar {
+    overflow-x: auto;
+    min-height: 55px;
+    padding: 5px 10px;
+  }
+  .action-slot,
+  .passive-token {
+    min-width: 48px;
+    height: 42px;
+  }
+  .paper-panel.shop-panel {
+    left: 40px;
+    width: calc(100% - 49px);
+    max-width: 385px;
+    top: 105px;
+    max-height: calc(100% - 117px);
+  }
+  .paper-panel.giant-panel {
+    right: 8px;
+    width: calc(100% - 16px);
+    top: 105px;
+    max-height: calc(100% - 117px);
+  }
+  .delivery-status {
+    display: none;
+  }
+  .objective-strip {
+    left: 50%;
+    max-width: 80%;
+    font-size: 8px;
+    top: 105px;
+    white-space: nowrap;
+  }
+  #toast {
+    top: 156px;
+  }
+  .hero-select-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .hero-option {
+    min-height: 280px;
+  }
+  .hero-option .hero-symbol {
+    height: 50px;
+    width: 50px;
+    font-size: 31px;
+    margin-bottom: 10px;
+  }
+  .hero-option h3 {
+    font-size: 17px;
+  }
+  .hero-option p {
+    font-size: 9px;
+  }
+  #heroSelect {
+    padding: 20px;
+  }
+  #heroSelect h2 {
+    font-size: 24px;
+  }
+  .giant-panel .sudoku-grid {
+    width: clamp(240px, calc(100dvh - 535px), 360px);
+  }
+  .sudoku-grid.size-9 .cell {
+    font-size: 15px;
+  }
+  .unified-digits {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .unified-digits .shop-card b {
+    font-size: 18px;
+  }
+  .unified-digits .shop-card span {
+    font-size: 5px;
+  }
+  #pauseOverlay {
+    inset: 0;
+  }
+}

@@ -1,0 +1,265 @@
+/* Personal universal entries flow through a compact rainbow gradient. */
+.sudoku-grid .universal-digit,
+#healthHUD .universal-digit {
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(
+    110deg,
+    #ef476f 0%,
+    #f7b538 17%,
+    #73c957 34%,
+    #20b8ad 51%,
+    #537be8 68%,
+    #a855cf 84%,
+    #ef476f 100%
+  );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: universal-flow 2.4s linear infinite;
+  font-weight: 800;
+  text-shadow: 0 0 5px #ffffff80;
+  filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 7px #b38affaa);
+}
+.sudoku-grid .phantom-digit {
+  color: #9148b8;
+  font-weight: 600;
+  text-shadow: 0 0 7px #d5a7ef;
+}
+@keyframes universal-flow {
+  to {
+    background-position: 250% 50%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sudoku-grid .universal-digit,
+  #healthHUD .universal-digit {
+    animation-duration: 8s;
+  }
+}
+.double-stroke-digit {
+  animation: double-stroke-arrive 1.35s ease-out both;
+  color: #bf7b20;
+  text-shadow:
+    0 0 5px #ffd66e,
+    0 0 11px #fff2a6;
+}
+@keyframes double-stroke-arrive {
+  0% {
+    opacity: 0;
+    transform: scale(0.45) rotate(-14deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.health-pages {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+.health-page {
+  min-width: 0;
+  flex: var(--health-size) 1 0;
+  max-width: 104px;
+}
+.health-page small {
+  display: block;
+  min-height: 12px;
+  font-size: 8px;
+}
+.health-page .health-grid {
+  aspect-ratio: 1;
+  width: 100%;
+  gap: 0;
+  border: 2px solid #42664b;
+  background: #faf7eb;
+}
+#healthHUD .health-cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-right: 1px solid #adb69c;
+  border-bottom: 1px solid #adb69c;
+  color: #347e65;
+  font-size: clamp(9px, calc(64px / var(--health-size)), 16px);
+  font-weight: 700;
+  line-height: 1;
+}
+#healthHUD .health-cell.hurt {
+  background: #e7eadb;
+}
+#healthHUD .health-cell.armored {
+  background-color: #c4c9cb;
+  box-shadow: inset 0 0 0 2px #636d74;
+}
+#healthHUD .health-cell.universal-hp {
+  color: inherit;
+}
+#healthHUD .health-cell.burning {
+  color: #d84b3e;
+  background: #f9d6bc;
+  text-shadow: 0 0 4px #f16a5677;
+}
+#healthHUD .health-cell.poisoned {
+  color: #548e06;
+  background: #e2eec1;
+}
+#healthHUD .health-cell.masked,
+#healthHUD .health-cell.stone {
+  color: #677366;
+  background: #cfd4c7;
+}
+#healthHUD .health-cell.hole {
+  color: #54433b;
+  background: #d5cbbd;
+}
+#healthHUD .health-cell.error {
+  color: #d34a40;
+}
+#healthHUD .health-cell.rune-key {
+  position: relative;
+  box-shadow: inset 0 0 0 2px #398bd0;
+}
+#healthHUD .health-cell.rune-sealed {
+  position: relative;
+  background: #d6cfeb;
+  box-shadow: inset 0 0 0 2px #8468b0;
+}
+#healthHUD .health-cell .health-rune-label {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  font-size: 7px;
+  color: #315b91;
+}
+#healthHUD .health-cell.block-right {
+  border-right: 2px solid #718164;
+}
+#healthHUD .health-cell.block-bottom {
+  border-bottom: 2px solid #718164;
+}
+
+.rune-status {
+  padding: 8px;
+  color: #315b91;
+  background: #d5e7f0;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.sudoku-grid .rune-key {
+  position: relative;
+  box-shadow: inset 0 0 0 2px #398bd0;
+}
+.sudoku-grid .rune-sealed {
+  position: relative;
+  background: #d6cfeb;
+  box-shadow: inset 0 0 0 2px #8468b0;
+}
+.rune-label {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  font-size: 10px;
+  color: #315b91;
+}
+
+#map.rune-targeting {
+  cursor: crosshair;
+}
+
+/* Decorative pixels stay outside the cell's layout and follow its burning state. */
+.cell.burning::after,
+#healthHUD .health-cell.burning::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  right: 2px;
+  bottom: 2px;
+  width: 7px;
+  height: 10px;
+  background: #ffb62f;
+  box-shadow: inset 0 -3px #fff09b;
+  clip-path: polygon(
+    0 50%,
+    28% 50%,
+    28% 20%,
+    56% 20%,
+    56% 0,
+    85% 0,
+    85% 50%,
+    100% 50%,
+    100% 100%,
+    0 100%
+  );
+  animation: digit-fire 0.5s steps(2, end) infinite;
+}
+@keyframes digit-fire {
+  50% {
+    transform: translateY(-1px) scaleX(-1);
+    background: #ff7624;
+  }
+}
+
+.misfire-digit {
+  position: relative;
+  color: var(--evasion-color, #b33d38);
+}
+.caustic-result {
+  --evasion-color: #66ae16;
+}
+.misfire-digit::after {
+  content: "";
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  top: 50%;
+  height: 3px;
+  background: var(--evasion-color, #b33d38);
+  transform: rotate(-35deg);
+  animation: misfire-cross 0.18s linear both;
+  transform-origin: left;
+}
+@keyframes misfire-cross {
+  from {
+    transform: rotate(-35deg) scaleX(0);
+  }
+  to {
+    transform: rotate(-35deg) scaleX(1);
+  }
+}
+
+.misfire-result {
+  position: relative;
+  display: inline-grid;
+}
+.misfire-result > span {
+  grid-area: 1 / 1;
+}
+.misfire-result .misfire-digit {
+  animation: misfire-hide 0.18s steps(1, end) forwards;
+}
+.misfire-wrong {
+  opacity: 0;
+  animation: misfire-show 0.18s steps(1, end) forwards;
+}
+@keyframes misfire-hide {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes misfire-show {
+  to {
+    opacity: 1;
+  }
+}

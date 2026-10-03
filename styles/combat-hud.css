@@ -1,0 +1,191 @@
+.action-bar {
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.action-slot {
+  min-width: 76px !important;
+  min-height: 72px !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 28px !important;
+  padding: 8px !important;
+}
+.action-slot small {
+  display: block;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: normal;
+}
+.enemy-panel {
+  border: 2px solid #aa5149;
+  background: #fff2e9;
+}
+.enemy-panel .panel-heading {
+  border-bottom: 3px solid #aa5149;
+  color: #913f39;
+}
+.enemy-panel .cell.given {
+  background: #edd4c5;
+}
+.guide-digit {
+  opacity: 0.32;
+  color: #567e74;
+  font-style: italic;
+  pointer-events: none;
+}
+.enemy-panel .guide-digit {
+  color: #954d48;
+}
+.error-digit {
+  color: #e01d31 !important;
+  font-weight: 900;
+  text-shadow: 0 0 5px #ffb2a5;
+}
+.combat-skills {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 24px 6px 18px;
+  max-width: calc(100% - min(var(--mini-size, 220px), 42vw) - 336px);
+  pointer-events: auto;
+  isolation: isolate;
+}
+.combat-skills::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ececdb;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 9%,
+    calc(100% - 12px) 18%,
+    100% 29%,
+    calc(100% - 7px) 40%,
+    100% 53%,
+    calc(100% - 11px) 65%,
+    100% 78%,
+    calc(100% - 8px) 90%,
+    100% 100%,
+    0 100%
+  );
+  z-index: -1;
+}
+#healthHUD {
+  bottom: 155px;
+  left: 24px;
+  z-index: 15;
+  pointer-events: none;
+}
+#healthHUD strong,
+#healthHUD small {
+  display: block;
+  font-size: 12px;
+}
+.health-grid {
+  display: grid;
+  margin: 5px 0;
+}
+#questBoard {
+  position: fixed;
+  left: 18px;
+  top: 130px;
+  width: 252px;
+  z-index: 12;
+  overflow: auto;
+  background: #f7f1dfef;
+  padding: 16px;
+  border: 1px solid #b7b99c;
+  border-radius: 8px;
+}
+#questBoard h3 {
+  margin: 8px 0 14px;
+  font-size: 22px;
+}
+#questBoard article {
+  padding: 12px 0;
+  border-top: 1px solid #cdd0b9;
+}
+#questBoard p {
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 7px 0;
+}
+#questBoard button {
+  padding: 8px 12px;
+}
+@media (max-width: 850px) {
+  #questBoard {
+    top: 120px;
+    width: 190px;
+  }
+  #healthHUD {
+    bottom: 175px;
+    left: 8px;
+  }
+  .action-slot {
+    min-width: 64px !important;
+    min-height: 64px !important;
+  }
+}
+.combat-strip {
+  display: flex;
+  align-items: stretch;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  z-index: 16;
+  pointer-events: none;
+}
+#healthHUD {
+  position: static;
+  width: 180px;
+  flex: 0 0 180px;
+  padding: 4px 8px;
+  border: 0;
+  border-right: 1px solid #b7c1a5;
+  border-radius: 0;
+  background: transparent;
+}
+.action-bar {
+  max-width: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+#questBoard {
+  bottom: 300px;
+  max-height: calc(100dvh - 430px);
+}
+#questBoard[hidden] {
+  display: none;
+}
+@media (max-width: 850px) {
+  .combat-skills {
+    padding: 5px 16px 5px 8px;
+    gap: 6px;
+  }
+  #healthHUD {
+    width: 120px;
+    flex-basis: 120px;
+  }
+  #healthHUD strong,
+  #healthHUD small {
+    font-size: 10px;
+  }
+  .action-bar {
+    max-width: none;
+  }
+  #questBoard {
+    bottom: 355px;
+    max-height: calc(100dvh - 490px);
+  }
+}

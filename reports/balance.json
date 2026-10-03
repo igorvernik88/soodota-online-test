@@ -1,0 +1,1109 @@
+{
+  "version": 4,
+  "config": {
+    "worldSize": 1050,
+    "mapMultiplier": 10.5,
+    "moveSpeed": 60,
+    "normalCooldown": 10,
+    "editorCooldown": 15,
+    "forestSpeed": 1.5,
+    "errorLock": 2,
+    "cardCost": 2,
+    "inventorySize": 20,
+    "startGold": 100,
+    "normalReward": 3,
+    "campGold": 65,
+    "campRespawn": 45,
+    "interactRadius": 13,
+    "towerGold": [
+      100,
+      170,
+      240
+    ],
+    "lineGold": 170,
+    "passiveGoldPerSecond": 0.5,
+    "courierSpeed": 46,
+    "courierReach": 7,
+    "flowerPeriod": 180,
+    "flowerGold": 70,
+    "flowerSpeedBonus": 0.04,
+    "flowerSkillBonus": 0.03,
+    "flowerMaxStacks": 5,
+    "shovelCooldown": 30,
+    "editorEraserCooldown": 10,
+    "editorRockCooldown": 30,
+    "veilDuration": 35,
+    "veilCount": 12,
+    "eraserCount": 6,
+    "invertDuration": 40,
+    "doubleChance": 0.18,
+    "comboWindow": 1.5,
+    "comboReduction": 0.01,
+    "comboMinimum": 0.35,
+    "phantomDuration": 5.5,
+    "botThinkMin": 1.6,
+    "botThinkSpread": 1.1,
+    "botShopInterval": 20
+  },
+  "minMinutes": 17.24,
+  "maxMinutes": 29.76,
+  "medianMinutes": 19.81,
+  "runs": [
+    {
+      "seed": 42,
+      "role": "agile",
+      "minutes": 26.57,
+      "winner": 1,
+      "score": [
+        3,
+        3
+      ],
+      "cardShare": 0.777,
+      "flowers": 8,
+      "shovels": 36,
+      "editorDeliveries": 28,
+      "heroes": [
+        {
+          "role": "agile",
+          "cards": 221,
+          "pen": 92,
+          "gold": 462,
+          "earned": 2398,
+          "spent": 1936,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 235,
+          "pen": 51,
+          "gold": 289,
+          "earned": 2163,
+          "spent": 1874,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 197,
+          "pen": 41,
+          "gold": 315,
+          "earned": 2113,
+          "spent": 1798,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 192,
+          "pen": 57,
+          "gold": 345,
+          "earned": 2555,
+          "spent": 2210,
+          "flowers": 4
+        },
+        {
+          "role": "agile",
+          "cards": 235,
+          "pen": 112,
+          "gold": 53,
+          "earned": 2609,
+          "spent": 2556,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 213,
+          "pen": 51,
+          "gold": 20,
+          "earned": 2206,
+          "spent": 2186,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 234,
+          "pen": 62,
+          "gold": 225,
+          "earned": 2177,
+          "spent": 1952,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 253,
+          "pen": 45,
+          "gold": 152,
+          "earned": 2472,
+          "spent": 2320,
+          "flowers": 4
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "role": "intellect",
+      "minutes": 20.52,
+      "winner": 1,
+      "score": [
+        4,
+        4
+      ],
+      "cardShare": 0.77,
+      "flowers": 6,
+      "shovels": 18,
+      "editorDeliveries": 26,
+      "heroes": [
+        {
+          "role": "intellect",
+          "cards": 150,
+          "pen": 44,
+          "gold": 162,
+          "earned": 1950,
+          "spent": 1788,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 139,
+          "pen": 65,
+          "gold": 157,
+          "earned": 1919,
+          "spent": 1762,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 167,
+          "pen": 33,
+          "gold": 371,
+          "earned": 1833,
+          "spent": 1462,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 206,
+          "pen": 52,
+          "gold": 155,
+          "earned": 2361,
+          "spent": 2206,
+          "flowers": 3
+        },
+        {
+          "role": "agile",
+          "cards": 159,
+          "pen": 74,
+          "gold": 228,
+          "earned": 2038,
+          "spent": 1810,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 145,
+          "pen": 34,
+          "gold": 48,
+          "earned": 1832,
+          "spent": 1784,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 152,
+          "pen": 39,
+          "gold": 106,
+          "earned": 1890,
+          "spent": 1784,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 178,
+          "pen": 46,
+          "gold": 167,
+          "earned": 2309,
+          "spent": 2142,
+          "flowers": 3
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "role": "strong",
+      "minutes": 20.8,
+      "winner": 1,
+      "score": [
+        4,
+        3
+      ],
+      "cardShare": 0.775,
+      "flowers": 6,
+      "shovels": 21,
+      "editorDeliveries": 24,
+      "heroes": [
+        {
+          "role": "strong",
+          "cards": 190,
+          "pen": 43,
+          "gold": 122,
+          "earned": 1978,
+          "spent": 1856,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 190,
+          "pen": 55,
+          "gold": 91,
+          "earned": 1949,
+          "spent": 1858,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 197,
+          "pen": 45,
+          "gold": 133,
+          "earned": 2009,
+          "spent": 1876,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 173,
+          "pen": 32,
+          "gold": 81,
+          "earned": 2231,
+          "spent": 2150,
+          "flowers": 5
+        },
+        {
+          "role": "agile",
+          "cards": 187,
+          "pen": 114,
+          "gold": 197,
+          "earned": 2059,
+          "spent": 1862,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 170,
+          "pen": 49,
+          "gold": 333,
+          "earned": 1811,
+          "spent": 1478,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 199,
+          "pen": 48,
+          "gold": 139,
+          "earned": 2017,
+          "spent": 1878,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 133,
+          "pen": 32,
+          "gold": 245,
+          "earned": 1775,
+          "spent": 1530,
+          "flowers": 1
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "role": "editor",
+      "minutes": 18.88,
+      "winner": 1,
+      "score": [
+        3,
+        4
+      ],
+      "cardShare": 0.803,
+      "flowers": 6,
+      "shovels": 23,
+      "editorDeliveries": 11,
+      "heroes": [
+        {
+          "role": "editor",
+          "cards": 135,
+          "pen": 30,
+          "gold": 945,
+          "earned": 1690,
+          "spent": 745,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 143,
+          "pen": 54,
+          "gold": 1001,
+          "earned": 1831,
+          "spent": 830,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 154,
+          "pen": 38,
+          "gold": 290,
+          "earned": 1722,
+          "spent": 1432,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 175,
+          "pen": 33,
+          "gold": 943,
+          "earned": 1847,
+          "spent": 904,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 155,
+          "pen": 48,
+          "gold": 43,
+          "earned": 1853,
+          "spent": 1810,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 132,
+          "pen": 25,
+          "gold": 68,
+          "earned": 1808,
+          "spent": 1740,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 144,
+          "pen": 29,
+          "gold": 377,
+          "earned": 1767,
+          "spent": 1390,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 143,
+          "pen": 32,
+          "gold": 173,
+          "earned": 2249,
+          "spent": 2076,
+          "flowers": 6
+        }
+      ]
+    },
+    {
+      "seed": 98,
+      "role": "agile",
+      "minutes": 22,
+      "winner": 0,
+      "score": [
+        3,
+        4
+      ],
+      "cardShare": 0.815,
+      "flowers": 7,
+      "shovels": 20,
+      "editorDeliveries": 27,
+      "heroes": [
+        {
+          "role": "agile",
+          "cards": 197,
+          "pen": 93,
+          "gold": 249,
+          "earned": 2131,
+          "spent": 1882,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 173,
+          "pen": 26,
+          "gold": 316,
+          "earned": 1780,
+          "spent": 1464,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 216,
+          "pen": 56,
+          "gold": 68,
+          "earned": 1996,
+          "spent": 1928,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 226,
+          "pen": 31,
+          "gold": 191,
+          "earned": 1900,
+          "spent": 1709,
+          "flowers": 1
+        },
+        {
+          "role": "agile",
+          "cards": 210,
+          "pen": 53,
+          "gold": 128,
+          "earned": 2034,
+          "spent": 1906,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 201,
+          "pen": 35,
+          "gold": 19,
+          "earned": 1917,
+          "spent": 1898,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 183,
+          "pen": 37,
+          "gold": 179,
+          "earned": 2013,
+          "spent": 1834,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 183,
+          "pen": 30,
+          "gold": 283,
+          "earned": 2418,
+          "spent": 2135,
+          "flowers": 6
+        }
+      ]
+    },
+    {
+      "seed": 98,
+      "role": "intellect",
+      "minutes": 19.62,
+      "winner": 1,
+      "score": [
+        3,
+        4
+      ],
+      "cardShare": 0.794,
+      "flowers": 6,
+      "shovels": 21,
+      "editorDeliveries": 27,
+      "heroes": [
+        {
+          "role": "intellect",
+          "cards": 180,
+          "pen": 46,
+          "gold": 298,
+          "earned": 1794,
+          "spent": 1496,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 131,
+          "pen": 101,
+          "gold": 190,
+          "earned": 1928,
+          "spent": 1738,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 203,
+          "pen": 46,
+          "gold": 42,
+          "earned": 1918,
+          "spent": 1876,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 163,
+          "pen": 38,
+          "gold": 371,
+          "earned": 1969,
+          "spent": 1598,
+          "flowers": 3
+        },
+        {
+          "role": "agile",
+          "cards": 208,
+          "pen": 59,
+          "gold": 69,
+          "earned": 1979,
+          "spent": 1910,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 224,
+          "pen": 38,
+          "gold": 364,
+          "earned": 1932,
+          "spent": 1568,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 146,
+          "pen": 21,
+          "gold": 305,
+          "earned": 1731,
+          "spent": 1426,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 183,
+          "pen": 25,
+          "gold": 39,
+          "earned": 2175,
+          "spent": 2136,
+          "flowers": 3
+        }
+      ]
+    },
+    {
+      "seed": 98,
+      "role": "strong",
+      "minutes": 19.82,
+      "winner": 0,
+      "score": [
+        3,
+        3
+      ],
+      "cardShare": 0.779,
+      "flowers": 6,
+      "shovels": 26,
+      "editorDeliveries": 25,
+      "heroes": [
+        {
+          "role": "strong",
+          "cards": 179,
+          "pen": 20,
+          "gold": 279,
+          "earned": 1775,
+          "spent": 1496,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 160,
+          "pen": 67,
+          "gold": 257,
+          "earned": 1987,
+          "spent": 1730,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 145,
+          "pen": 42,
+          "gold": 72,
+          "earned": 1836,
+          "spent": 1764,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 192,
+          "pen": 21,
+          "gold": 304,
+          "earned": 1885,
+          "spent": 1581,
+          "flowers": 1
+        },
+        {
+          "role": "agile",
+          "cards": 213,
+          "pen": 117,
+          "gold": 282,
+          "earned": 2190,
+          "spent": 1908,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 144,
+          "pen": 32,
+          "gold": 68,
+          "earned": 1830,
+          "spent": 1762,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 148,
+          "pen": 43,
+          "gold": 15,
+          "earned": 1795,
+          "spent": 1780,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 119,
+          "pen": 27,
+          "gold": 57,
+          "earned": 2061,
+          "spent": 2004,
+          "flowers": 5
+        }
+      ]
+    },
+    {
+      "seed": 98,
+      "role": "editor",
+      "minutes": 29.76,
+      "winner": 1,
+      "score": [
+        3,
+        4
+      ],
+      "cardShare": 0.758,
+      "flowers": 9,
+      "shovels": 47,
+      "editorDeliveries": 14,
+      "heroes": [
+        {
+          "role": "editor",
+          "cards": 192,
+          "pen": 32,
+          "gold": 1577,
+          "earned": 2452,
+          "spent": 875,
+          "flowers": 6
+        },
+        {
+          "role": "agile",
+          "cards": 210,
+          "pen": 108,
+          "gold": 1567,
+          "earned": 2541,
+          "spent": 974,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 174,
+          "pen": 39,
+          "gold": 1129,
+          "earned": 2035,
+          "spent": 906,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 228,
+          "pen": 42,
+          "gold": 1100,
+          "earned": 2116,
+          "spent": 1016,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 195,
+          "pen": 140,
+          "gold": 495,
+          "earned": 2981,
+          "spent": 2486,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 181,
+          "pen": 42,
+          "gold": 441,
+          "earned": 2295,
+          "spent": 1854,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 128,
+          "pen": 33,
+          "gold": 115,
+          "earned": 2143,
+          "spent": 2028,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 142,
+          "pen": 26,
+          "gold": 168,
+          "earned": 2238,
+          "spent": 2070,
+          "flowers": 3
+        }
+      ]
+    },
+    {
+      "seed": 1234,
+      "role": "agile",
+      "minutes": 19.8,
+      "winner": 1,
+      "score": [
+        4,
+        4
+      ],
+      "cardShare": 0.787,
+      "flowers": 6,
+      "shovels": 17,
+      "editorDeliveries": 26,
+      "heroes": [
+        {
+          "role": "agile",
+          "cards": 185,
+          "pen": 87,
+          "gold": 246,
+          "earned": 2082,
+          "spent": 1836,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 197,
+          "pen": 39,
+          "gold": 75,
+          "earned": 1961,
+          "spent": 1886,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 172,
+          "pen": 45,
+          "gold": 143,
+          "earned": 1979,
+          "spent": 1836,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 174,
+          "pen": 30,
+          "gold": 427,
+          "earned": 2015,
+          "spent": 1588,
+          "flowers": 2
+        },
+        {
+          "role": "agile",
+          "cards": 174,
+          "pen": 92,
+          "gold": 322,
+          "earned": 2158,
+          "spent": 1836,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 187,
+          "pen": 38,
+          "gold": 81,
+          "earned": 1937,
+          "spent": 1856,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 216,
+          "pen": 34,
+          "gold": 113,
+          "earned": 2037,
+          "spent": 1924,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 164,
+          "pen": 33,
+          "gold": 473,
+          "earned": 2071,
+          "spent": 1598,
+          "flowers": 4
+        }
+      ]
+    },
+    {
+      "seed": 1234,
+      "role": "intellect",
+      "minutes": 17.84,
+      "winner": 1,
+      "score": [
+        4,
+        4
+      ],
+      "cardShare": 0.76,
+      "flowers": 5,
+      "shovels": 26,
+      "editorDeliveries": 27,
+      "heroes": [
+        {
+          "role": "intellect",
+          "cards": 125,
+          "pen": 36,
+          "gold": 90,
+          "earned": 1828,
+          "spent": 1738,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 122,
+          "pen": 65,
+          "gold": 350,
+          "earned": 1984,
+          "spent": 1634,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 116,
+          "pen": 43,
+          "gold": 327,
+          "earned": 1959,
+          "spent": 1632,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 116,
+          "pen": 34,
+          "gold": 143,
+          "earned": 1881,
+          "spent": 1738,
+          "flowers": 2
+        },
+        {
+          "role": "agile",
+          "cards": 160,
+          "pen": 75,
+          "gold": 240,
+          "earned": 2052,
+          "spent": 1812,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 135,
+          "pen": 21,
+          "gold": 307,
+          "earned": 1703,
+          "spent": 1396,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 127,
+          "pen": 27,
+          "gold": 335,
+          "earned": 1695,
+          "spent": 1360,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 152,
+          "pen": 31,
+          "gold": 370,
+          "earned": 1942,
+          "spent": 1572,
+          "flowers": 3
+        }
+      ]
+    },
+    {
+      "seed": 1234,
+      "role": "strong",
+      "minutes": 19.18,
+      "winner": 1,
+      "score": [
+        4,
+        4
+      ],
+      "cardShare": 0.75,
+      "flowers": 6,
+      "shovels": 25,
+      "editorDeliveries": 29,
+      "heroes": [
+        {
+          "role": "strong",
+          "cards": 124,
+          "pen": 36,
+          "gold": 95,
+          "earned": 1831,
+          "spent": 1736,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 170,
+          "pen": 82,
+          "gold": 45,
+          "earned": 2159,
+          "spent": 2114,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 183,
+          "pen": 49,
+          "gold": 105,
+          "earned": 1965,
+          "spent": 1860,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 154,
+          "pen": 29,
+          "gold": 29,
+          "earned": 2133,
+          "spent": 2104,
+          "flowers": 3
+        },
+        {
+          "role": "agile",
+          "cards": 149,
+          "pen": 95,
+          "gold": 79,
+          "earned": 2159,
+          "spent": 2080,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 162,
+          "pen": 46,
+          "gold": 18,
+          "earned": 2090,
+          "spent": 2072,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 144,
+          "pen": 48,
+          "gold": 154,
+          "earned": 1934,
+          "spent": 1780,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 160,
+          "pen": 30,
+          "gold": 59,
+          "earned": 2124,
+          "spent": 2065,
+          "flowers": 3
+        }
+      ]
+    },
+    {
+      "seed": 1234,
+      "role": "editor",
+      "minutes": 17.24,
+      "winner": 1,
+      "score": [
+        2,
+        4
+      ],
+      "cardShare": 0.708,
+      "flowers": 5,
+      "shovels": 34,
+      "editorDeliveries": 11,
+      "heroes": [
+        {
+          "role": "editor",
+          "cards": 78,
+          "pen": 21,
+          "gold": 115,
+          "earned": 1244,
+          "spent": 1129,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 107,
+          "pen": 111,
+          "gold": 995,
+          "earned": 1759,
+          "spent": 764,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 83,
+          "pen": 35,
+          "gold": 521,
+          "earned": 1237,
+          "spent": 716,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 81,
+          "pen": 28,
+          "gold": 520,
+          "earned": 1232,
+          "spent": 712,
+          "flowers": 0
+        },
+        {
+          "role": "agile",
+          "cards": 126,
+          "pen": 60,
+          "gold": 199,
+          "earned": 1937,
+          "spent": 1738,
+          "flowers": 0
+        },
+        {
+          "role": "intellect",
+          "cards": 111,
+          "pen": 21,
+          "gold": 355,
+          "earned": 1715,
+          "spent": 1360,
+          "flowers": 0
+        },
+        {
+          "role": "strong",
+          "cards": 127,
+          "pen": 32,
+          "gold": 328,
+          "earned": 1692,
+          "spent": 1364,
+          "flowers": 0
+        },
+        {
+          "role": "editor",
+          "cards": 100,
+          "pen": 27,
+          "gold": 43,
+          "earned": 1982,
+          "spent": 1939,
+          "flowers": 5
+        }
+      ]
+    }
+  ]
+}

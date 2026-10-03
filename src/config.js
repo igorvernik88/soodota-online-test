@@ -1,0 +1,711 @@
+export const CONFIG = Object.freeze({
+  worldSize: 5250,
+  mapMultiplier: 52.5,
+  moveSpeed: 216,
+  heroVisionRadius: 560,
+  structureVisionRadius: 400,
+  creepVisionRadius: 687.5,
+  normalCooldown: 1.5,
+  editorCooldown: 1.5,
+  forestSpeed: 1.5,
+  errorLock: 2,
+  duelBotErrorChance: 0.4,
+  startGold: 100,
+  inventorySlots: 4,
+  teamSize: 5,
+  editorRange: 350,
+  stoneRestock: 180,
+  shovelPrice: 2000,
+  normalReward: 3,
+  campGold: 65,
+  campRespawn: 45,
+  interactRadius: 26,
+  heroAttackMultiplier: 2,
+  heroSeparation: 40,
+  heroSpawnSpacing: 220,
+  baseServiceRadius: 78,
+  baseRegenRadius: 234,
+  effectRadius: 260,
+  lassoRadius: 260,
+  combatRangeMultiplier: 2.5,
+  towerGold: [100, 170, 240],
+  lineGold: 170,
+  passiveGoldPerSecond: 0.5,
+  courierSpeed: 230 * 1.8,
+  courierReach: 14,
+  flowerPeriod: 180,
+  flowerGold: 70,
+  flowerSpeedBonus: 0.04,
+  flowerSkillBonus: 0.03,
+  flowerMaxStacks: 5,
+  shovelCooldown: 30,
+  editorEraserCooldown: 10,
+  editorRockCooldown: 30,
+  veilDuration: 20,
+  veilCount: 12,
+  eraserCount: 6,
+  invertDuration: 40,
+  doubleChance: 0.18,
+  comboWindow: 1.5,
+  comboReduction: 0.01,
+  comboMinimum: 0.35,
+  phantomDuration: 5.5,
+  botThinkMin: 1.6,
+  botThinkSpread: 1.1,
+  botShopInterval: 20,
+  botFlowerSearchRadius: 1125,
+});
+export const FOREST = Object.freeze({
+  recoverySeconds: 90,
+  burnSeconds: 5,
+  cellSize: 0.5,
+  minCells: 16,
+  visionDivisor: 3,
+  transitionSeconds: 0.6,
+});
+export const RULES = {
+  lane: { size: 6, blockRows: 2, blockCols: 3 },
+  tower: { size: 9, blockRows: 3, blockCols: 3 },
+  camp: { size: 4, blockRows: 2, blockCols: 2 },
+  core: { size: 9, blockRows: 3, blockCols: 3 },
+  ward: { size: 4, blockRows: 2, blockCols: 2 },
+};
+export const WARDS = Object.freeze({
+  shopCooldown: 180,
+  stockLimit: 1,
+  initialStock: 2,
+  visionRadius: 780,
+  lifetime: 120,
+  maxActive: 2,
+  emptyCells: 4,
+  placementRadius: 38,
+  interactRadius: 65,
+  supportRadius: 65,
+  regenInterval: 1,
+  supportedRegenInterval: 2,
+  botThinkInterval: 0.25,
+  botDetourRadius: 875,
+  botWardSeparation: 390,
+  botStructureSeparation: CONFIG.structureVisionRadius,
+  botSites: [
+    [43, 29],
+    [47, 41],
+    [52, 53],
+    [59, 66],
+    [50, 10],
+    [90, 50],
+    [25, 75],
+    [75, 25],
+    [28, 42],
+    [40, 72],
+    [60, 28],
+    [72, 58],
+  ],
+  spriteFrames: 6,
+  spriteFrameMs: 180,
+  spriteSize: 130,
+  sprites: [
+    { file: "listya.webp", top: 190, height: 320 },
+    { file: "klyaksy.webp", top: 170, height: 365 },
+  ],
+});
+export const ERASER = Object.freeze({
+  price: 2400,
+  digitCooldown: 10,
+  wardCooldownFactor: 0.8,
+});
+export const BASES = [
+  { x: 420, y: 4830 },
+  { x: 4830, y: 420 },
+];
+export const RIVER = [
+  [34, 0],
+  [35, 12],
+  [43, 29],
+  [47, 41],
+  [52, 53],
+  [59, 66],
+  [63, 85],
+  [66, 100],
+];
+export const HEROES = [
+  {
+    id: "agile",
+    name: "Шустрик",
+    title: "Ловкач",
+    symbol: "↯",
+    color: "#6d9b69",
+    description:
+      "Серия быстрых ходов пером и замедление врага. Навыки открываются и усиливаются отдельно за личные цифры.",
+  },
+  {
+    id: "intellect",
+    name: "Синечерт",
+    title: "Интеллектуал",
+    symbol: "✧",
+    color: "#668da4",
+    description:
+      "Синие фантомы после верного хода пером, ускоренное восстановление и лассо. Навыки открываются отдельно за личные цифры.",
+  },
+  {
+    id: "strong",
+    name: "Дырокол",
+    title: "Силовик",
+    symbol: "⬡",
+    color: "#ae8352",
+    description:
+      "Пробивает клетку после ошибки и оглушает врагов рядом. Шанс, сила и перезарядка зависят от ранга навыка.",
+  },
+  {
+    id: "editor",
+    name: "Правщик",
+    title: "Редактор",
+    symbol: "⌫",
+    color: "#94729e",
+    description:
+      "Боевой редактор: решает судоку пером, восстанавливает союзников Ластиком, меняет темп боя, защищает здоровье Чернильным переплётом и уносит врага Похищением.",
+  },
+  {
+    id: "combinator",
+    name: "Комбинатор",
+    title: "Мастер комбинаций",
+    symbol: "☷",
+    color: "#84bb26",
+    description:
+      "Яд после верного хода пером создаёт временные цифры; коробка удерживает врага до решения или истечения времени. Эффекты зависят от ранга навыка.",
+  },
+  {
+    id: "sudaks",
+    name: "Судакс",
+    title: "Судакс",
+    symbol: "✦",
+    color: "#bd514a",
+    description:
+      "Боевой клич удерживает врагов и заставляет решать его здоровье. Горящие цифры временно заполняют здоровье врага, затем сжигают соседнюю цифру. Навыки открываются за личные цифры.",
+  },
+  {
+    id: "sudzh",
+    name: "Судж",
+    title: "Ловец",
+    symbol: "⚓",
+    color: "#89934d",
+    description:
+      "Притягивает героев и крипов крюком, отравляет врагов и себя Вонью и оглушает врага Свежим судоку, решая его здоровье вдвое быстрее.",
+  },
+  {
+    id: "duet",
+    name: "Суд & Ока",
+    title: "Неразлучный дуэт",
+    symbol: "♊",
+    color: "#99764e",
+    description:
+      "Суд и Ока откладывают урон щитом, бьют Брутфорсом, разделяют лист здоровья при броске и вызывают врага на общую судоку-дуэль.",
+  },
+];
+export const ITEMS = [
+  {
+    id: "stone",
+    name: "Камень",
+    icon: "⬟",
+    price: ERASER.price,
+    description:
+      "Ставит камень в пустую клетку атакующего листа союзной башни рядом. Общий запас команды: один, восстановление 180 с. Снимается покупной Лопатой.",
+  },
+  {
+    id: "shovel",
+    name: "Лопата",
+    icon: "⚒",
+    price: CONFIG.shovelPrice,
+    description:
+      "Расходник: удаляет выбранный камень на вашей атакующей странице башни в радиусе 350. Успешное снятие расходует одну Лопату.",
+  },
+  {
+    id: "eraserTool",
+    name: "Ластик",
+    icon: "▱",
+    price: ERASER.price,
+    description: `Многоразовый, один на команду. Стирает одну цифру у себя, союзного героя или башни рядом: ${ERASER.digitCooldown} с. Уничтожает обнаруженный вражеский вард рядом: ${WARDS.shopCooldown * ERASER.wardCooldownFactor} с, отдельная перезарядка. Выпадает при смерти. Нажмите предмет и выберите цель на карте; Shift+ЛКМ по союзнику — передать; Esc — отменить.`,
+  },
+  {
+    id: "ward",
+    name: "Вард",
+    icon: "◎",
+    price: 0,
+    description: `Командный обзор: радиус ${WARDS.visionRadius}, ${WARDS.lifetime} с. На старте — ${WARDS.initialStock} на команду; далее запас ${WARDS.stockLimit}, восстановление ${WARDS.shopCooldown} с. D — выбрать место под курсором; ЛКМ — подойти и установить.`,
+  },
+  {
+    id: "sharpener",
+    name: "Точилка",
+    icon: "△",
+    price: 30,
+    regenFactor: 2,
+    regenDuration: 18,
+    healInterval: 6,
+    stockLimit: 3,
+    restock: 30,
+    description:
+      "Восстанавливает 1 цифру каждые 6 секунд в течение 18 секунд: всего 3. Урон не прерывает. Личный запас 3, восстановление 1 каждые 30 секунд.",
+  },
+  {
+    id: "sharpener2",
+    name: "Большая точилка",
+    icon: "▲",
+    price: 100,
+    regenFactor: 4,
+    regenDuration: 10,
+    healInterval: 1,
+    cancelOnHeroDamage: true,
+    stockLimit: 1,
+    restock: 90,
+    description:
+      "Восстанавливает 1 цифру каждую секунду в течение 10 секунд: всего 10. Урон вражеского героя прерывает. Личный запас 1, восстановление каждые 90 секунд.",
+  },
+  {
+    id: "health6",
+    name: "Переплёт жизни",
+    icon: "♡",
+    price: 600,
+    healthSize: 6,
+    description: "Увеличивает здоровье до судоку 6×6. Сохраняет долю урона.",
+  },
+  {
+    id: "health9",
+    name: "Великий переплёт",
+    icon: "♥",
+    price: 1500,
+    healthSize: 9,
+    description:
+      "Увеличивает здоровье: добавляет отдельный лист 4×4 к основному судоку 6×6. Сохраняет долю урона.",
+  },
+  {
+    id: "quill1",
+    name: "Лёгкое перо",
+    icon: "✒",
+    price: 80,
+    tier: 1,
+    reduction: 0.1,
+    description: "Постоянно: −10% времени пера. Ускоряет обычные ходы.",
+  },
+  {
+    id: "quill2",
+    name: "Серебряное перо",
+    icon: "✒",
+    price: 400,
+    tier: 2,
+    reduction: 0.22,
+    description: "−22% времени пера. Доплата разницы цен, без суммирования.",
+  },
+  {
+    id: "quill3",
+    name: "Рунное перо",
+    icon: "✒",
+    price: 900,
+    tier: 3,
+    reduction: 0.38,
+    description: "−38% времени пера. Доплата разницы цен.",
+  },
+  {
+    id: "quill4",
+    name: "Перо хронографа",
+    icon: "✒",
+    price: 1600,
+    tier: 4,
+    reduction: 0.55,
+    description: "−55% времени пера. Последняя ступень улучшения.",
+  },
+  {
+    id: "misfire",
+    name: "Осечка",
+    icon: "✎",
+    price: 1600,
+    evasion: 0.18,
+    description:
+      "Постоянно: 18% шанс уклониться от верного вражеского ввода в своё ХП. Цифра перечёркивается и становится ошибочной; пробивание Дырокола может сработать. Шанс не складывается.",
+  },
+  {
+    id: "double",
+    name: "Двойной росчерк",
+    icon: "✧",
+    price: 650,
+    description:
+      "Постоянно: 18% шанс дописать ещё одну логически найденную цифру после хода пером.",
+  },
+  {
+    id: "boots1",
+    name: "Сапоги скорохода",
+    icon: "♢",
+    price: 80,
+    bootTier: 1,
+    speedBonus: 0.1,
+    description: "Постоянно: +10% к скорости героя.",
+  },
+  {
+    id: "bootsMid",
+    name: "Сапоги следопыта",
+    icon: "♢",
+    price: 600,
+    bootTier: 2,
+    speedBonus: 0.18,
+    description: "Постоянно: +18% к скорости героя. Доплата разницы цен.",
+  },
+  {
+    id: "boots2",
+    name: "Крылатые сапоги",
+    icon: "♢",
+    price: 1000,
+    bootTier: 3,
+    speedBonus: 0.25,
+    description: "Постоянно: +25% к скорости героя. Доплата разницы цен.",
+  },
+  {
+    id: "stun1",
+    name: "Стан 3 секунды",
+    icon: "⌁",
+    price: 100,
+    stunDuration: 3,
+    description: "Оглушает ближайшего вражеского героя на 3 с.",
+  },
+  {
+    id: "stun2",
+    name: "Стан 5 секунд",
+    icon: "⌁",
+    price: 250,
+    stunDuration: 5,
+    description: "Оглушает ближайшего вражеского героя на 5 с.",
+  },
+  {
+    id: "stun3",
+    name: "Стан 8 секунд",
+    icon: "⌁",
+    price: 600,
+    stunDuration: 8,
+    description: "Оглушает ближайшего вражеского героя на 8 с.",
+  },
+  {
+    id: "miniInk",
+    name: "Мини-чернила",
+    icon: "●",
+    price: 150,
+    inkDuration: 9,
+    description:
+      "Закрывает пять случайных клеток собственного судоку-здоровья на 9 секунд.",
+  },
+  {
+    id: "lasso",
+    name: "Лассо переплётчика",
+    icon: "◯",
+    price: 650,
+    lassoDuration: 10,
+    description:
+      "Связывает ближайшего врага на 10 с. Он не может выйти из радиуса лассо, а его судоку здоровья доступно во всём круге.",
+  },
+  {
+    id: "veil",
+    name: "Чернильная завеса",
+    icon: "▨",
+    price: 600,
+    description:
+      "Закрывает 12 случайных клеток здоровья себя, союзника или союзной башни на 20 секунд. Выбор мышкой, дальность 1200.",
+  },
+  {
+    id: "invert",
+    name: "Зеркало переписчика",
+    icon: "⇄",
+    price: 750,
+    description:
+      "На 40 с обращает цифры врага: 1↔9, 2↔8 и так далее (в 6×6: 1↔6). Ввод тоже следует новому порядку.",
+  },
+  {
+    id: "eraser",
+    name: "Ластик забвения",
+    icon: "◇",
+    price: 1600,
+    description:
+      "Стирает до шести вписанных цифр на случайной незавершённой вражеской башне текущей линии. Подсказки защищены.",
+  },
+];
+
+export const LANES = [
+  [
+    [8, 92],
+    [10, 65],
+    [10, 10],
+    [37, 10],
+    [92, 8],
+  ],
+  [
+    [8, 92],
+    [31, 70],
+    [50, 50],
+    [70, 31],
+    [92, 8],
+  ],
+  [
+    [8, 92],
+    [33, 91],
+    [90, 90],
+    [91, 59],
+    [92, 8],
+  ],
+];
+
+// Shared forest corridors: drawing and tree placement use the same map geometry.
+export const TRAILS = [
+  [
+    [12, 12],
+    [28, 42],
+    [50, 50],
+  ],
+  [
+    [28, 42],
+    [40, 72],
+    [88, 88],
+  ],
+  [
+    [50, 50],
+    [60, 28],
+    [92, 8],
+  ],
+  [
+    [40, 72],
+    [72, 58],
+    [60, 28],
+  ],
+  [
+    [72, 58],
+    [88, 88],
+  ],
+];
+
+// [PLACEHOLDER] Progression balance: validate through playtests.
+export const PROGRESSION = Object.freeze({
+  universalHealthLifetime: 30,
+  start: 3,
+  seconds: 120,
+  costs: [3, 5, 6, 7],
+  creepSeconds: 10,
+  creepRadius: 150,
+  killDigits: 2,
+  assistSeconds: 120,
+  towerDigits: [1, 1, 2],
+  lineDigits: 1,
+  campSeconds: [15, 25],
+});
+const ranked = (name, params) => ({
+  name,
+  ranks: Array.from({ length: 4 }, (_, i) =>
+    Object.fromEntries(
+      Object.entries(params).map(([key, values]) => [key, values[i]]),
+    ),
+  ),
+});
+export const FIRE = {
+  maxCharges: 3,
+  ballRadius: 240,
+  ballRange: 600,
+  castDelay: 0.3,
+  outgoingDuration: 4,
+};
+export const SKILLS = {
+  stubborn: ranked("Упёртость", {
+    duration: [3, 4, 5, 6],
+    cooldown: [30, 26, 22, 18],
+  }),
+  bruteforce: ranked("Брутфорс", {
+    count: [2, 3, 4, 5],
+    chance: [0.1, 0.1, 0.1, 0.1],
+    cooldown: [16, 14, 12, 10],
+  }),
+  throwOka: ranked("Бросок Оки", {
+    range: [700, 700, 700, 700],
+    projectileSpeed: [1000, 1000, 1000, 1000],
+    duration: [8, 12, 16, 20],
+    cooldown: [60, 52, 44, 36],
+  }),
+  headOn: {
+    name: "Лоб в лоб",
+    costs: [5, 8, 11],
+    ranks: [15, 20, 25].map((duration, i) => ({
+      duration,
+      delay: 0.4,
+      range: 900,
+      projectileSpeed: 1100,
+      cooldown: [100, 85, 70][i],
+    })),
+  },
+  breakPencil: {
+    name: "Сломанный карандаш",
+    costs: [5, 8, 11],
+    ranks: [
+      { duration: 10, cooldown: 100 },
+      { duration: 15, cooldown: 85 },
+      { duration: 20, cooldown: 70 },
+    ],
+  },
+  tornado: {
+    name: "Огненное торнадо",
+    costs: [5, 8, 11],
+    ranks: [
+      { duration: 8, cooldown: 100, pen: 0.5, speed: 0.1, incoming: 5 },
+      { duration: 10, cooldown: 85, pen: 0.5, speed: 0.15, incoming: 4 },
+      { duration: 13, cooldown: 70, pen: 0.5, speed: 0.2, incoming: 3 },
+    ],
+  },
+  rune: {
+    name: "Рунный переплёт",
+    costs: [6, 8, 10],
+    ranks: [
+      { keys: 2, duration: 30, cooldown: 80 },
+      { keys: 3, duration: 45, cooldown: 75 },
+      { keys: 4, duration: 50, cooldown: 65 },
+    ],
+  },
+  combo: {
+    name: "Серия",
+    costs: [5, 8, 11],
+    ranks: [
+      { window: 1, reduction: 0.2, minimum: 0.35, limit: 3 },
+      { window: 1.5, reduction: 0.1, minimum: 0.35, limit: 5 },
+      { window: 1.75, reduction: 0.08, minimum: 0.35, limit: 7 },
+    ],
+  },
+  dust: ranked("Пыль в глаза", {
+    duration: [10, 12, 14, 16],
+    cooldown: [60, 55, 50, 45],
+  }),
+  slow: ranked("Замедление", {
+    strength: [0.1, 0.2, 0.33, 0.5],
+    duration: [3, 5, 7, 9],
+    cooldown: [60, 45, 32, 25],
+  }),
+  phantoms: ranked("Фантомы", {
+    chance: [0.2, 0.35, 0.5, 0.65],
+    duration: [4, 5.5, 5.5, 5.5],
+  }),
+  heal: ranked("Восстановление", {
+    factor: [2, 4, 4, 4],
+    duration: [4, 5, 7.5, 10],
+    cooldown: [60, 45, 32, 25],
+  }),
+  lasso: ranked("Лассо", {
+    duration: [6, 10, 10, 10],
+    cooldown: [60, 45, 32, 25],
+  }),
+  hole: ranked("Пробивание", { chance: [0.25, 0.5, 0.6, 0.7] }),
+  stun: ranked("Оглушение", {
+    duration: [1.5, 3, 4.5, 7],
+    cooldown: [60, 45, 32, 25],
+  }),
+  focus: ranked("Неточная рука", {
+    duration: [10, 15, 20, 20],
+    factor: [2, 2, 2, 2],
+    cooldown: [60, 45, 32, 25],
+  }),
+  poison: ranked("Яд", {
+    chance: [0.2, 0.35, 0.5, 0.65],
+    count: [1, 1, 2, 3],
+    cooldown: [18, 15, 12.5, 10],
+    delay: [4, 4, 4, 4],
+    duration: [4, 4, 4, 4],
+  }),
+  box: {
+    name: "Судоку-коробка",
+    costs: [5, 8, 11],
+    ranks: [
+      { duration: 10, cooldown: 100, pages: 1, hints: 6, pen: 0.15, armor: 0 },
+      { duration: 15, cooldown: 85, pages: 1, hints: 4, pen: 0.25, armor: 0 },
+      { duration: 20, cooldown: 70, pages: 1, hints: 4, pen: 0.35, armor: 5 },
+    ],
+  },
+  caustic: ranked("Едкая среда", {
+    chance: [0.1, 0.15, 0.2, 0.3],
+    cooldown: [20, 16, 12, 8],
+  }),
+  acid: ranked("Кислотная зона", {
+    interval: [7 / 1.5, 6 / 1.5, 5 / 1.5, 4 / 1.5],
+    slow: [0.2, 0.3, 0.4, 0.5],
+    duration: [12, 12, 12, 12],
+    radius: [240, 240, 240, 240],
+    range: [600, 600, 600, 600],
+    cooldown: [60, 50, 40, 30],
+  }),
+  cry: ranked("Боевой клич", {
+    duration: [5, 7, 10, 15],
+    armor: [3, 5, 7, 10],
+    cooldown: [75, 60, 50, 40],
+  }),
+  hook: {
+    name: "Крюк",
+    costs: [4, 6, 8, 10],
+    ranks: [700, 800, 900, 1000].map((range, i) => ({
+      range,
+      cooldown: [18, 16, 14, 12][i],
+      projectileSpeed: 1000,
+      hitRadius: 70,
+    })),
+  },
+  thickBinding: ranked("Толстый переплёт", {
+    hits: [3, 3, 3, 3],
+    armor: [3, 4, 5, 6],
+    delay: [8, 8, 8, 8],
+    interval: [3, 3, 3, 3],
+  }),
+  stench: {
+    name: "Вонь",
+    costs: [4, 6, 8, 10],
+    ranks: [7, 6, 5, 4].map((interval) => ({
+      radius: 220,
+      interval,
+      duration: 8,
+    })),
+  },
+  freshSudoku: {
+    name: "Свежий судоку",
+    costs: [5, 8, 11],
+    ranks: [4, 6, 8].map((duration, i) => ({
+      range: 350,
+      duration,
+      cooldown: [100, 85, 70][i],
+    })),
+  },
+  burning: ranked("Горящие цифры", {
+    cap: [2, 2, 3, 3],
+    count: [1, 1, 2, 3],
+    duration: [7, 9, 10, 12],
+    cooldown: [60, 45, 30, 20],
+  }),
+  erase: ranked("Ластик", { cooldown: [15, 10, 8, 6] }),
+  tempo: ranked("Темп", {
+    strength: [0.3, 0.3, 0.3, 0.3],
+    duration: [2, 3, 5, 7],
+    cooldown: [24, 18, 16, 14],
+  }),
+  abduction: {
+    name: "Похищение",
+    costs: [5, 8, 11],
+    ranks: [
+      { duration: 4, cooldown: 100, speed: 0.3 },
+      { duration: 6, cooldown: 85, speed: 0.4 },
+      { duration: 8, cooldown: 70, speed: 0.5 },
+    ],
+  },
+  inkBinding: {
+    name: "Чернильный переплёт",
+    costs: [5, 8, 11],
+    ranks: [
+      { duration: 10, cooldown: 100 },
+      { duration: 15, cooldown: 85 },
+      { duration: 20, cooldown: 70 },
+    ],
+  },
+};
+export const ROLE_SKILLS = {
+  duet: ["stubborn", "bruteforce", "throwOka", "headOn"],
+  sudzh: ["hook", "stench", "freshSudoku", "thickBinding"],
+  agile: ["combo", "slow", "dust"],
+  intellect: ["phantoms", "heal", "lasso", "rune"],
+  strong: ["hole", "stun", "focus", "breakPencil"],
+  combinator: ["poison", "acid", "box", "caustic"],
+  sudaks: ["cry", "burning", "tornado"],
+  editor: ["erase", "tempo", "inkBinding", "abduction"],
+};

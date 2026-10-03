@@ -1,0 +1,296 @@
+.skill-button.skill-intellect {
+  --skill-color: #347ad1 !important;
+}
+.passive-token.skill-intellect {
+  color: #235fa9;
+  border-color: #347ad1;
+  background: #dceaff;
+}
+.skill-slot-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+.skill-upgrade-arrow {
+  position: absolute;
+  z-index: 3;
+  top: -17px;
+  left: 50%;
+  width: 26px;
+  height: 23px;
+  transform: translateX(-50%);
+  padding: 0;
+  border: 1px solid #d79b24;
+  border-radius: 50% 50% 4px 4px;
+  background: #ffe36a;
+  color: #744710;
+  font-weight: 900;
+  animation: skill-upgrade-glow 0.9s ease-in-out infinite alternate;
+}
+@keyframes skill-upgrade-glow {
+  to {
+    box-shadow: 0 0 12px 4px #ffd64e;
+    transform: translateX(-50%);
+  }
+}
+.skill-detail {
+  display: none;
+  position: absolute;
+  z-index: 80;
+  left: 50%;
+  bottom: 68px;
+  width: 360px;
+  max-width: 85vw;
+  transform: translateX(-50%);
+  padding: 9px 11px;
+  border: 1px solid #89957c;
+  border-radius: 5px;
+  background: #25352ef5;
+  color: #e8e7d8;
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow: 0 5px 18px #25382a33;
+  pointer-events: none;
+}
+.alt-held .skill-slot-wrap:hover .skill-detail {
+  display: block;
+}
+
+/* Personal resource and rank controls */
+.personal-digits {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.personal-digits > div {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+.digit-ring {
+  --digit-progress: 0deg;
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  border: 0;
+  border-radius: 50%;
+  padding: 7px;
+  background: conic-gradient(#55ef79 var(--digit-progress), #d9dfcc 0);
+  box-shadow: 0 0 0 1px #74907633;
+}
+.digit-ring > span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #faf7eb;
+  color: #19372b;
+  font-size: 30px;
+  font-weight: 800;
+}
+#lastUpgrade {
+  max-width: 300px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+.skill-upgrades {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+.skill-upgrade {
+  padding: 14px;
+  border: 1px solid #c6ccb8;
+  background: #f9f5e8;
+  border-radius: 8px;
+}
+.skill-upgrade h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+.skill-upgrade h3 small {
+  float: right;
+}
+.skill-upgrade p {
+  margin: 7px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.skill-next {
+  color: #427956;
+}
+.skill-button:disabled,
+.locked-skill {
+  opacity: 0.45;
+}
+@media (max-width: 700px) {
+  .digit-ring {
+    flex-basis: 60px;
+    width: 60px;
+    height: 60px;
+  }
+  #lastUpgrade {
+    max-width: 200px;
+  }
+}
+
+.skill-detail header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 16px;
+}
+.skill-detail header > img,
+.skill-detail header > svg {
+  width: 42px;
+  height: 42px;
+}
+.skill-detail header small {
+  display: block;
+  font-size: 10px;
+  color: #b6bbac;
+}
+.skill-detail p {
+  margin: 12px 0;
+  line-height: 1.45;
+}
+.skill-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0;
+  color: #adb8ab;
+}
+.skill-stat b {
+  font-weight: 400;
+  color: #91a08f;
+}
+.skill-stat b.current-rank {
+  font-weight: 700;
+  color: #ffd975;
+}
+.skill-ranks {
+  display: flex;
+  gap: 5px;
+  margin: 8px 0;
+}
+.skill-ranks i {
+  flex: 1;
+  text-align: center;
+  font-style: normal;
+  border: 1px solid #7d8c75;
+  background: #172b22;
+}
+.skill-ranks i.learned {
+  background: #72965c;
+  color: #fff5d9;
+}
+.skill-cost {
+  display: block;
+  margin-top: 10px;
+  color: #e0c981;
+}
+
+.skill-upgrade-arrow:hover {
+  transform: translateX(-50%);
+}
+.skill-upgrade-cost {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 6px;
+  background: #172b22;
+  color: #ffe36a;
+  white-space: nowrap;
+  z-index: 4;
+  pointer-events: none;
+}
+body.alt-held .skill-upgrade-cost {
+  display: block;
+}
+#playerEffects {
+  position: absolute;
+  bottom: calc(100% + 28px);
+  left: 18px;
+  display: flex;
+  gap: 7px;
+}
+.player-effect {
+  --effect-color: #8fce53;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    var(--effect-color) var(--effect-angle),
+    #38423755 0
+  );
+  box-shadow: 0 1px 4px #0008;
+}
+.player-effect.negative {
+  --effect-color: #e16e56;
+}
+.player-effect > span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: #25372c;
+  border-radius: 50%;
+  color: #fff4cf;
+  overflow: hidden;
+}
+.player-effect img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.player-effect small {
+  position: absolute;
+  bottom: -4px;
+  right: -3px;
+  background: #172b22;
+  border-radius: 6px;
+  padding: 0 3px;
+  font-size: 10px;
+  color: white;
+}
+
+#duetControls {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.duet-portrait {
+  width: 48px;
+  padding: 2px;
+  background: #f8f1dc;
+  border: 2px solid #857858;
+}
+.duet-portrait.selected {
+  border-color: #3a945d;
+}
+.duet-portrait span {
+  display: block;
+  height: 36px;
+  background-size: 288px 96px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+.duet-portrait small {
+  display: block;
+  font-size: 10px;
+}
+
+.duet-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}

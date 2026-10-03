@@ -1,0 +1,64 @@
+:root {
+  --ink: #293d34;
+  --paper: #f5f0e2;
+  --muted: #7f8776;
+  --green: #386c53;
+  --red: #b85e4b;
+  --line: #d8d5c4;
+  --gold: #c59345;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Golos Text", Arial, sans-serif;
+  font-size: 14px;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: #fbf7eb;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+button:hover:not(:disabled) {
+  background: #e6e8d5;
+  transform: translateY(-1px);
+}
+button:focus-visible {
+  outline: 3px solid #c39347;
+  outline-offset: 3px;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+button.primary {
+  background: var(--green);
+  color: #fff8e8;
+  border: 1px solid #315c46;
+  box-shadow: 0 3px 0 #234632;
+  padding: 14px 19px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+button.primary:hover {
+  background: #2b5843;
+}
+#app {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

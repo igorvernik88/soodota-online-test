@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <script>
+      if (
+        location.protocol === "file:" &&
+        location.pathname.endsWith("/index.html")
+      )
+        location.replace(new URL("sudota.html", location.href));
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f2eddc" />
+    <title>Судота — Пять почерков</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="#"
+          ><span class="brand-mark">✣</span
+          ><span>СУДОТА<small>ПЯТЬ ПОЧЕРКОВ</small></span></a
+        >
+        <div class="match-score" aria-label="Статус героев и счёт убийств">
+          <div
+            id="matchTeamA"
+            class="match-roster leaves"
+            aria-label="Герои Листьев"
+          ></div>
+          <div class="match-center">
+            <div class="match-kills leaves" title="Убийства команды Листьев">
+              <small>ЛИСТЬЯ</small><b id="scoreA">0</b>
+            </div>
+            <div class="match-time">
+              <small>ВРЕМЯ</small><span id="clock">Подготовка</span>
+            </div>
+            <div class="match-kills blots" title="Убийства команды Клякс">
+              <small>КЛЯКСЫ</small><b id="scoreB">0</b>
+            </div>
+          </div>
+          <div
+            id="matchTeamB"
+            class="match-roster blots"
+            aria-label="Герои Клякс"
+          ></div>
+        </div>
+        <div class="header-actions">
+          <button
+            id="hintsButton"
+            class="icon-btn"
+            title="Включить или выключить подсказки"
+            aria-pressed="true"
+          >
+            !
+          </button>
+          <button id="helpButton" class="icon-btn" title="Справочник">?</button
+          ><button id="pauseButton" class="icon-btn" title="Пауза · F1">
+            Ⅱ
+          </button>
+        </div>
+      </header>
+      <main id="world">
+        <canvas id="map" aria-label="Игровая карта"></canvas>
+        <div class="world-grain"></div>
+        <button
+          id="shopArrow"
+          title="Открыть или закрыть лавку · B"
+          aria-label="Открыть лавку"
+        >
+          <span>›</span><small>ЛАВКА</small>
+        </button>
+        <div class="objective-strip">
+          <span id="objectiveText"></span
+          ><button id="enemyBaseButton" title="Идти к вражеской базе">◈</button>
+        </div>
+        <div id="courierStatus" class="delivery-status"></div>
+        <div id="sandboxControls" class="sandbox-controls" hidden>
+          <strong>Тестовое поле</strong>
+          <button data-action="sandbox-reset-cooldowns">Сброс кулдаунов</button>
+          <div class="sandbox-side" data-sandbox-team="0">
+            <span>Листья</span
+            ><select id="sandboxRole0" aria-label="Герой Листьев"></select>
+            <button data-sandbox-spawn="0">Создать</button>
+            <button data-sandbox-control="0">Смотреть</button>
+          </div>
+          <div class="sandbox-side" data-sandbox-team="1">
+            <span>Кляксы</span
+            ><select id="sandboxRole1" aria-label="Герой Клякс"></select>
+            <button data-sandbox-spawn="1">Создать</button>
+            <button data-sandbox-control="1">Смотреть</button>
+          </div>
+          <small
+            >Заменяйте героев во время игры. «Смотреть» переключает управление и
+            туман войны.</small
+          >
+        </div>
+        <div class="camera-tools">
+          <button id="zoomOut">−</button><button id="zoomIn">+</button
+          ><button id="overviewButton">Карта <kbd>M</kbd></button
+          ><button id="followButton">Герой <kbd>F</kbd></button>
+        </div>
+        <div id="mapHint" class="map-hint">
+          ЛКМ — идти · ПКМ + движение — камера · колесо — масштаб
+        </div>
+        <div id="toast" role="status" aria-live="polite"></div>
+        <aside id="panel" class="paper-panel" hidden></aside>
+        <div id="tooltip"></div>
+      </main>
+      <button
+        id="questArrow"
+        data-action="quests"
+        hidden
+        title="Показать задачи Правщика"
+      >
+        Задачи →
+      </button>
+      <aside id="questBoard" hidden></aside>
+      <footer class="bottom-hud">
+        <div class="combat-strip">
+          <div class="combat-skills">
+            <div id="duetControls"></div>
+            <div id="playerEffects" aria-label="Действующие эффекты"></div>
+            <div id="healthHUD"></div>
+            <div
+              id="digitRing"
+              class="digit-ring"
+              aria-label="Личный запас цифр"
+            >
+              <span id="bagCount">3</span>
+            </div>
+            <div id="actionBar" class="action-bar"></div>
+          </div>
+        </div>
+
+        <section class="hero-card">
+          <div class="avatar role-avatar"><span id="heroSymbol">✧</span></div>
+          <div>
+            <span class="eyebrow" id="heroRole">Интеллектуал</span>
+            <h3 id="heroName">Синечерт</h3>
+            <div class="hero-meta">
+              <span>✦ Листья</span><span id="gold">◉ 100</span>
+            </div>
+          </div>
+        </section>
+        <section class="ability">
+          <div class="pen-icon">✒</div>
+          <div>
+            <span class="eyebrow" id="penLevel">УРОВЕНЬ ПЕРА</span
+            ><strong id="cooldownText">Перо готово</strong>
+            <div class="cooldown-track"><div id="cooldownBar"></div></div>
+            <small id="cooldownCaption"></small>
+          </div>
+        </section>
+        <section class="inventory personal-digits">
+          <div>
+            <span class="eyebrow">ЗДОРОВЬЕ</span>
+            <div
+              id="playerHealthBar"
+              class="health-value"
+              role="meter"
+              aria-label="Здоровье героя"
+            ></div>
+            <small>Пробел — универсальная цифра</small
+            ><small>Alt — описание</small
+            ><small id="lastUpgrade">Выберите первый навык</small>
+          </div>
+        </section>
+
+        <section
+          id="passiveItems"
+          class="passive-items"
+          aria-label="Пассивные предметы"
+        ></section>
+      </footer>
+    </div>
+    <section id="itemShelf" class="item-shelf">
+      <div id="purchasedItems" class="item-bar"></div>
+    </section>
+    <div id="cameraReturnHint" hidden></div>
+    <canvas
+      id="miniMap"
+      width="256"
+      height="256"
+      aria-label="Мини-карта"
+    ></canvas>
+    <section id="chatPanel" class="chat-panel">
+      <div id="chatLog" role="log" aria-live="polite"></div>
+      <div id="chatComposer" hidden>
+        <label id="chatScope" for="chatInput">Всем</label
+        ><input
+          id="chatInput"
+          maxlength="200"
+          autocomplete="off"
+          aria-label="Сообщение в чат"
+        />
+      </div>
+    </section>
+    <dialog id="heroSelect"></dialog>
+    <dialog id="tutorial">
+      <button id="closeTutorial" class="close">×</button
+      ><span class="eyebrow">ПОЛЕВОЙ СПРАВОЧНИК · ЧЕТВЁРТАЯ РЕДАКЦИЯ</span>
+      <h2>Каждый почерк меняет игру.</h2>
+      <div class="tutorial-grid">
+        <article>
+          <b>01 / ЦИФРЫ</b>
+          <h3>Основной запас</h3>
+          <p>
+            Старт: 100 монет и 3 личные цифры. Каждые 120 секунд приходит ещё
+            одна цифра, даже после смерти. Пробел вводит правильную цифру в
+            выбранную клетку. Цифры также оплачивают ранги навыков: 3/5/6/7.
+            Запас не ограничен. Обычный ввод использует перо и даёт 3 монеты.
+            Универсальный ход монет не даёт.
+          </p>
+        </article>
+        <article>
+          <b>02 / ОШИБКИ</b>
+          <h3>Красные чернила</h3>
+          <p>
+            Неверная цифра краснеет и исчезает за 2 секунды. На это время клетка
+            закрыта всей команде, а ошибившийся герой не может вводить. Цифра из
+            сумки не расходуется. Дырки Дырокола засчитываются без раскрытия
+            ответа.
+          </p>
+        </article>
+        <article>
+          <b>03 / ОСАДА</b>
+          <h3>Три листа базы</h3>
+          <p>
+            У каждой стороны по T1, T2, T3 на трёх линиях; T3 стоят перед базой.
+            Полностью пройденная линия открывает три поля 9×9. Нужно собрать все
+            три. Чем больше башен сломано на соответствующей линии, тем больше
+            подсказок в её листе базы. Уже сделанные ходы сохраняются.
+          </p>
+        </article>
+        <article>
+          <b>04 / ПРЕДМЕТЫ</b>
+          <h3>Всё в одной лавке</h3>
+          <p>
+            Стрелка слева или I открывает снаряжение. Купленные расходники
+            появляются внизу: наведите курсор для описания. Они выбирают
+            случайную незавершённую башню на последней посещённой линии. Зеркало
+            меняет обозначения цифр и ввод на 40 секунд.
+          </p>
+        </article>
+        <article>
+          <b>05 / ДОСТАВКА</b>
+          <h3>Командная доставка и осмотр</h3>
+          <p>
+            Самолётик каждой команды забирает заказы на базе и доставляет живым
+            получателям; заказы погибших сохраняются. Alt/Command + ЛКМ по
+            союзнику или башне — осмотр без движения. Правщик решает судоку
+            обычным пером: Q — Ластик, W — замедление, E — Переплёт, R —
+            Похищение, T — ускорение. Судж: Q — Крюк, W — переключить Вонь, E —
+            Свежий судоку. Крюк притягивает героев и крипов обеих команд; Вонь
+            ранит себя и врагов временным ядом. Ульта удерживает Суджа на месте
+            и ускоряет перо против оглушённой цели. Alt открывает кнопки похвалы
+            под верхними аватарками. Чернильный переплёт и Похищение (R):
+            Правщик уносит вражеского героя. Камень и Лопата покупаются в лавке;
+            Лопата расходуется при снятии камня героем рядом. Активные навыки:
+            Q/W/E/R/T слева направо; X/C/V/B — четыре слота рюкзака; I —
+            магазин. Enter — чат, Tab — всем/команде; похвала доступна раз в 60
+            секунд.
+          </p>
+        </article>
+        <article>
+          <b>06 / ЦВЕТЫ</b>
+          <h3>Гонка за цветком</h3>
+          <p>
+            Каждые три минуты на реке появляется один цветок. Забрать его могут
+            все герои: первый получает 70 монет и следующую ступень здоровья 6×6
+            или 6×6 + 4×4. Правщик дополнительно получает +4% скорости и −3%
+            времени навыков, максимум за пять цветов. Самолётики цветы не
+            собирают.
+          </p>
+        </article>
+        <article>
+          <b>07 / ЛЕС</b>
+          <h3>Восемь испытаний</h3>
+          <p>
+            Лесные поля 4×4: +65 монет и 15 секунд личного таймера. Поля 6×6:
+            +130 монет и 25 секунд. Перо работает в полтора раза быстрее. Если
+            вся команда уйдёт, лагерь сбросится. Восстановление — 45 секунд.
+            Доход вне действий: 30 монет в минуту.
+          </p>
+        </article>
+        <article>
+          <b>08 / УПРАВЛЕНИЕ</b>
+          <h3>Бумажная география</h3>
+          <p>
+            ЛКМ по тетради — подойти и открыть. ЛКМ по врагу — его
+            судоку-здоровье: заполнение убивает. Здоровье восстанавливается
+            само, быстрее на базе. Переплёты в лавке увеличивают HP до 6×6 и
+            9×9. M — обзор карты, F — следовать за героем, колесо — масштаб, ПКМ
+            + перетаскивание — камера. Shift + щелчок мини-карты переносит
+            камеру. Ластик Правщика применяется к вписанной цифре в осмотре
+            союзника.
+          </p>
+        </article>
+      </div>
+      <div class="key-guide">
+        <kbd>1–9</kbd> ввод <kbd>N</kbd> заметки <kbd>I</kbd> лавка
+        <kbd>Esc</kbd> закрыть <kbd>Space</kbd> цифра <kbd>F1</kbd> пауза
+      </div>
+      <button id="tutorialDone" class="primary">Продолжить →</button>
+    </dialog>
+    <dialog id="result"></dialog>
+    <div id="pauseOverlay" hidden>
+      <span class="eyebrow">ПАУЗА</span>
+      <h2>История подождёт.</h2>
+      <section id="pauseSettings">
+        <h3>Настройки</h3>
+        <label class="mini-size-setting"
+          >Размер мини-карты <output id="miniSizeValue"></output
+          ><input id="miniSize" type="range" min="180" max="420" step="10"
+        /></label>
+        <div id="keyBindings"></div>
+        <small
+          >Нажмите клавишу действия, затем новую кнопку. Занятые клавиши
+          меняются местами. Escape отменяет назначение. Alt/Command, стрелки и
+          цифры остаются стандартными.</small
+        ><button id="resetSettings" type="button">Сбросить настройки</button>
+      </section>
+      <button id="resumeButton" class="primary">Продолжить →</button>
+    </div>
+    <div id="cursorPen" hidden aria-hidden="true"></div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

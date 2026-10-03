@@ -1,0 +1,7 @@
+{
+  "id": "sudotaartist",
+  "displayName": "Sudota Artist",
+  "description": "A pixel-art Sudota artist who sketches with a pencil and rests quietly between tasks.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

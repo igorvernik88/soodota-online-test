@@ -1,0 +1,444 @@
+/* Compact health board remains visible while reading skill descriptions. */
+#healthHUD {
+  position: relative;
+  inset: auto;
+  width: 88px;
+  flex: 0 0 88px;
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+}
+#healthHUD .health-summary {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 205px;
+  padding: 8px;
+  background: #f5f1e3;
+  border: 1px solid #b7c1a5;
+  border-radius: 6px;
+}
+#healthHUD .health-pages {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+  overflow: visible;
+}
+#healthHUD .health-page {
+  flex: 0 0 82px;
+  width: 82px;
+  max-width: none;
+}
+#healthHUD .health-page small {
+  display: none;
+}
+#healthHUD .health-page .health-grid {
+  width: 82px;
+  margin: 0;
+}
+#healthHUD.multi-page {
+  width: 168px;
+  flex-basis: 168px;
+}
+
+.action-bar {
+  justify-content: flex-start;
+}
+.objective-strip,
+.map-hint,
+.delivery-status {
+  display: none !important;
+}
+.item-shelf {
+  position: fixed;
+  right: calc(min(var(--mini-size, 220px), 42vw) + 32px);
+  bottom: 144px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+  padding: 6px 12px 6px 18px;
+  isolation: isolate;
+}
+.item-shelf::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ececdb;
+  z-index: -1;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% 100%,
+    8px 100%,
+    14px 84%,
+    0 70%,
+    11px 55%,
+    4px 39%,
+    14px 23%,
+    0 11%
+  );
+}
+.passive-items {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+.item-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 56px);
+  grid-auto-rows: 76px;
+  gap: 4px;
+}
+.item-bar:empty {
+  display: none;
+}
+.item-bar .action-slot {
+  min-width: 56px !important;
+  min-height: 76px !important;
+  width: 56px !important;
+  height: 76px !important;
+  padding: 3px !important;
+  font-size: 20px !important;
+}
+.item-bar .shop-item-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.item-bar .empty-item-slot {
+  background: #dce5c880;
+  border: 2px dashed #849368;
+}
+.item-bar .action-slot b {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  font-size: 11px;
+  background: #283d30dc;
+  color: #fff9df;
+  padding: 1px 3px;
+}
+.item-bar .action-slot small {
+  display: block;
+  position: relative;
+  font-size: 7px;
+  line-height: 1;
+}
+.item-bar .action-slot kbd {
+  position: absolute;
+  left: 2px;
+  bottom: 1px;
+  font-size: 10.5px;
+  line-height: 1;
+  padding: 3px 5px;
+  background: #263f32;
+  color: #fff9df;
+  border: 1px solid #fff9df;
+  font-weight: 700;
+}
+.item-shelf .base-button {
+  min-width: 54px !important;
+  min-height: 54px !important;
+  width: 54px !important;
+  height: 54px !important;
+  padding: 3px !important;
+  font-size: 22px !important;
+}
+.item-shelf .base-button small {
+  display: block;
+  font-size: 8px !important;
+  line-height: 1.1;
+}
+
+@media (max-width: 1100px) {
+  .bottom-hud {
+    height: auto;
+    min-height: 134px;
+  }
+}
+@media (max-width: 850px) {
+  #healthHUD {
+    width: 82px;
+    flex-basis: 82px;
+  }
+  #healthHUD.multi-page {
+    width: 168px;
+    flex-basis: 168px;
+  }
+  #healthHUD .health-summary {
+    width: 190px;
+  }
+}
+@media (max-width: 760px) {
+  .bottom-hud {
+    height: 258px;
+    align-content: flex-start;
+  }
+  .passive-items {
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: flex-end;
+    margin-left: 0;
+    padding: 5px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .item-bar {
+    grid-template-columns: repeat(4, 48px);
+    grid-auto-rows: 48px;
+    gap: 3px;
+  }
+  .item-bar .action-slot {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
+  }
+}
+
+#cursorPen {
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  padding: 4px 8px;
+  border: 1px solid #aab393;
+  border-radius: 6px;
+  background: #fff9e8ee;
+  color: #38523e;
+  font: 600 12px sans-serif;
+  white-space: nowrap;
+}
+
+#questArrow {
+  position: absolute;
+  left: 12px;
+  top: 155px;
+  z-index: 25;
+  padding: 10px 14px;
+  background: #fff9e8;
+  border: 1px solid #aab393;
+  border-radius: 6px;
+}
+#questArrow[hidden] {
+  display: none;
+}
+
+#playerHealthBar {
+  height: 24px;
+  line-height: 22px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  background: #b86451;
+  border: 1px solid #637b56;
+  border-radius: 3px;
+}
+.hp-segments {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+.hp-segment {
+  flex: 1 1 0;
+  min-width: 0;
+  border-right: 1px solid #293d3428;
+  background: #91b875;
+}
+.hp-segment.damaged {
+  background: #b86451;
+}
+.hp-segment.armored {
+  background: #bfc5c8;
+}
+.hp-segment.poisoned {
+  background: #8cde24;
+}
+.hp-segment.universal {
+  background: linear-gradient(
+    135deg,
+    #ec7373,
+    #f5db70,
+    #70dca2,
+    #78bdf4,
+    #bd8bef
+  );
+}
+.hp-segment.double-stroke {
+  background: #73b8dc;
+}
+.hp-segment.burning {
+  background: repeating-linear-gradient(
+    0deg,
+    #b9361f,
+    #ff8a25 40%,
+    #ffe06c 65%,
+    #c34521 100%
+  );
+  background-size: 100% 200%;
+  animation: hp-fire 0.8s steps(4) infinite;
+}
+.hp-label {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px #fff8cf;
+}
+@keyframes hp-fire {
+  to {
+    background-position: 0 200%;
+  }
+}
+.combat-skills > .digit-ring {
+  flex-shrink: 0;
+}
+
+.passive-items .action-slot {
+  width: 58px;
+  height: 58px;
+}
+.chat-panel {
+  position: fixed;
+  left: 20px;
+  bottom: 245px;
+  z-index: 25;
+  width: min(420px, 70vw);
+  color: #fff5d9;
+}
+#chatLog {
+  background: #263f32b8;
+  border-radius: 4px;
+  padding: 6px;
+}
+#chatLog:not(.chat-open):not(:has(div[style="opacity:1"])) {
+  background: transparent;
+}
+#chatLog.chat-open {
+  max-height: 240px;
+  overflow-y: auto;
+}
+#chatLog:empty {
+  display: none;
+}
+#chatComposer:not([hidden]) {
+  display: flex;
+  background: #263f32;
+  padding: 6px;
+  gap: 8px;
+}
+#chatInput {
+  min-width: 0;
+  flex: 1;
+}
+
+.passive-items .shop-item-icon {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+@media (max-width: 760px) {
+  .item-shelf {
+    bottom: 276px;
+    right: calc(min(var(--mini-size, 220px), 42vw) + 24px);
+  }
+  .chat-panel {
+    bottom: 342px;
+    left: 12px;
+  }
+}
+
+#miniMap {
+  position: fixed;
+  right: 20px;
+  bottom: 144px;
+  width: min(var(--mini-size, 220px), 42vw);
+  height: auto;
+  aspect-ratio: 1;
+  z-index: 20;
+  border: 2px solid #81916f;
+  background: #263f32;
+  image-rendering: pixelated;
+}
+@media (max-width: 760px) {
+  #miniMap {
+    right: 12px;
+    bottom: 270px;
+    width: min(var(--mini-size, 220px), 42vw);
+    height: auto;
+  }
+}
+
+#pauseSettings {
+  max-height: 65vh;
+  overflow-y: auto;
+  width: min(620px, 85vw);
+  text-align: left;
+  padding: 12px;
+  margin: 0 auto;
+}
+#keyBindings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+  margin: 12px 0;
+}
+#keyBindings label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+#keyBindings button {
+  min-width: 80px;
+  padding: 5px;
+}
+.mini-size-setting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+.mini-size-setting input {
+  width: 100%;
+}
+#pauseSettings > small {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 760px) {
+  .combat-skills {
+    max-width: 100%;
+  }
+}
+
+#cameraReturnHint {
+  position: fixed;
+  right: 20px;
+  bottom: calc(144px + min(var(--mini-size, 220px), 42vw) + 8px);
+  width: min(var(--mini-size, 220px), 42vw);
+  z-index: 21;
+  background: #f5f0e2ee;
+  padding: 5px;
+  font-size: 11px;
+  color: #293d34;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  #cameraReturnHint {
+    right: 12px;
+    bottom: calc(270px + min(var(--mini-size, 220px), 42vw) + 8px);
+  }
+}
